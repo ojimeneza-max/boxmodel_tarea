@@ -1,0 +1,304 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+    z-index: -1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Contenedor principal - Grid Layout con Box Model */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    
+    /* Box Model del contenedor */
+    width: 100%;
+    height: auto;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+/* Tarjeta de producto - Aplicación completa del Box Model */
+.producto {
+    /* Dimensionamiento - Width y Height */
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    
+    /* Espaciado interno - Padding */
+    padding: 25px;
+    
+    /* Espaciado externo - Margin */
+    margin: 0;
+    
+    /* Bordes - Border y Border-radius */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    
+    /* Sombras - Box-shadow */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    
+    /* Fondo */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    
+    /* Alineación del texto */
+    text-align: center;
+    
+    /* Transición para efectos hover */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    
+    /* Box Model específico para grid */
+    justify-self: center;
+    align-self: start;
+}
+
+.producto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover::before {
+    transform: scaleX(1);
+}
+
+.producto:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Imagen del producto - Box Model aplicado */
+.producto img {
+    /* Dimensionamiento */
+    width: 100%;
+    height: 220px;
+    
+    /* Espaciado externo */
+    margin-bottom: 20px;
+    
+    /* Bordes y redondeo */
+    border-radius: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    
+    /* Sombras */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    
+    /* Objeto fit para mantener proporción */
+    object-fit: cover;
+    
+    /* Transición */
+    transition: transform 0.3s ease;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+/* Título del producto */
+.producto h3 {
+    /* Espaciado */
+    margin-bottom: 15px;
+    padding: 10px;
+    
+    /* Color y fuente */
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+    
+    /* Borde inferior */
+    border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+    
+    /* Transición */
+    transition: color 0.3s ease;
+}
+
+.producto:hover h3 {
+    color: #667eea;
+}
+
+/* Descripción del producto */
+.producto p {
+    /* Espaciado */
+    margin-bottom: 20px;
+    padding: 10px;
+    
+    /* Color y fuente */
+    color: #7f8c8d;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    
+    /* Altura mínima para consistencia */
+    min-height: 65px;
+}
+
+/* Precio - Box Model completo */
+.precio {
+    /* Display */
+    display: inline-block;
+    
+    /* Dimensionamiento */
+    width: auto;
+    height: auto;
+    
+    /* Espaciado interno */
+    padding: 12px 25px;
+    
+    /* Espaciado externo */
+    margin-top: 15px;
+    
+    /* Bordes y redondeo */
+    border: none;
+    border-radius: 25px;
+    
+    /* Sombras */
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    
+    /* Colores y fuente */
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    
+    /* Transición */
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.precio::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.precio:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.precio:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Diseño responsivo con Grid */
+@media (max-width: 768px) {
+    .productos {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .producto {
+        min-height: 450px;
+        padding: 20px;
+    }
+    
+    .producto img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .producto {
+        min-height: 420px;
+        padding: 15px;
+    }
+    
+    .producto img {
+        height: 160px;
+    }
+    
+    .producto h3 {
+        font-size: 1.1rem;
+    }
+    
+    .producto p {
+        font-size: 0.9rem;
+    }
+    
+    .precio {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}

@@ -9,7 +9,15 @@
 - 🖥️ Interfaz intuitiva y fácil de usar
 - 📱 Diseño responsive que se adapta a cualquier dispositivo
 
-## 🛠️ Instalación
+## 📸 Capturas de Pantalla
+
+### 🖥️ Vista Principal - Productos Store
+![Captura Principal](assets/capturas/captura1.png)
+
+### 📱 Vista Responsiva - Versión Móvil
+![Captura Móvil](assets/capturas/captura2.png)
+
+## �️ Instalación
 
 1. Abre el archivo `index.html` en tu navegador preferido.
 

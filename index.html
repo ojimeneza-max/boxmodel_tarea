@@ -9,10 +9,40 @@
 <body>
     <header>
         <h1>Catálogo de Productos</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#contacto">Contacto</a>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar productos..." class="search-input">
+                <button class="search-btn">🔍</button>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section class="productos">
+        <section id="inicio" class="inicio">
+            <div class="hero-content">
+                <h2>Bienvenido a productos Store</h2>
+                <p>Los mejores productos para mejorar tu calidad de vida</p>
+                <div class="features">
+                    <div class="feature-item">
+                        <h3>🚢 Inicio</h3>
+                        <p>Descubre nuestra selección premium de productos exclusivos con la mejor calidad.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🛍️ Productos</h3>
+                        <p>Explora nuestro catálogo completo con equipos de calidad y accesorios profesionales.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>📬 Contactos</h3>
+                        <p>Conéctate con nosotros en Quito, Ecuador para asesoría personalizada y soporte técnico especializado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="productos" class="productos">
             <div class="producto">
                 <img src="assets/img/img1.jpeg" alt="Reloj">
                 <h3>Reloj Clásico</h3>
@@ -46,6 +76,25 @@
                 <h3>Camiseta Premium</h3>
                 <p>Diseño elegante con tela de algodón orgánico y corte moderno.</p>
                 <span class="precio">$79.99</span>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <div class="contact-content">
+                <h2>Contacto</h2>
+                <p>¿Tienes preguntas? ¡Estamos aquí para ayudarte!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3> Ubicación</h3>
+                        <p>Quito, Ecuador</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Tu nombre" required>
+                    <input type="email" placeholder="Tu email" required>
+                    <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                    <button type="submit" class="btn-contact">Enviar Mensaje</button>
+                </form>
             </div>
         </section>
     </main>
